@@ -1,32 +1,52 @@
 {
-	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-	"name": "tgs",
-	"patterns": [
-		{
-			"include": "#keywords"
-		},
-		{
-			"include": "#strings"
-		}
-	],
-	"repository": {
-		"keywords": {
-			"patterns": [{
-				"name": "keyword.control.tgs",
-				"match": "\\b(if|while|for|return)\\b"
-			}]
-		},
-		"strings": {
-			"name": "string.quoted.double.tgs",
-			"begin": "\"",
-			"end": "\"",
-			"patterns": [
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "name": "tgs",
+    "patterns": [
+    {
+      "include": "#keywords"
+    },
+    {
+      "include": "#comment"
+    }
+  ],
+    "repository": {
+    "keywords": {
+      "patterns": [
 				{
-					"name": "constant.character.escape.tgs",
-					"match": "\\\\."
+					"name": "support.function",
+					"match": "\\b点击|Click|延时|Delay|循环|Loop|长按|LongPress|滑动|Slide|按住|PressDown|按键|Key|准心重置|Aimreset|方向键重置|DirectionReset|键盘行走快跑|DirectionRun|键盘行走静步|DirectionWalk|按下键盘按键|PressKeyboard|松开键盘按键|ReleaseKeyboard|射击模式开关|ShotModeSwitch|进入射击模式|EnterShotMode|退出射击模式|ExitShotMode|鼠标左键切换开关|LeftMouseSwitch|进入鼠标左键控制|EnterLeftMouseControl|退出鼠标左键控制|ExitLeftMouseControl|托管鼠标左键|HostLeftMouse|准心自动调节|AimAutoAdjust|获取准心动态参数|GetAimDynamicAdjustParm|设置准心动态参数|SetAimDynamicAdjustParm|简单找图|SimpleFI|多点找色|MultiplePointsFC|提示|tip\\b"
+				},
+				{
+					"name": "keyword.control.if",
+					"match": "\\b如果|否则\\b"
+				},
+				{
+					"name": "constant.language.boolean",
+					"match": "(true|false)"
+				},
+				{
+					"match": "\\s*(变量)\\s+(\\S+?)=",
+					"captures": {
+						"1": {
+							"name": "keyword.control.var"
+						},
+						"2": {
+							"name": "variable.name"
+						}
+					}
+				},
+				{
+					"name": "keyword.operator.new",
+					"match": "!"
 				}
-			]
-		}
-	},
-	"scopeName": "source.tgs"
+      ]
+    },
+
+    "comment": {
+      "begin": "//",
+			"end": "\\n",
+			"name": "comment.line.double-slash"
+    }
+  },
+  "scopeName": "source.tgs"
 }
