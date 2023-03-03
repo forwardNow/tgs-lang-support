@@ -1,0 +1,25 @@
+{
+  "name": "tgs-lang-support",
+  "displayName": "tgs-lang-support",
+  "description": "TC Games 宏文件语言支持",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.76.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "tgs",
+      "aliases": ["tgs", "tgs"],
+      "extensions": ["tgs"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "tgs",
+      "scopeName": "source.tgs",
+      "path": "./syntaxes/tgs.tmLanguage.json"
+    }]
+  }
+}
